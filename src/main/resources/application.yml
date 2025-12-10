@@ -1,0 +1,50 @@
+# 数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/share?useSSL=false&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initialSize: 10
+      maxActive: 50
+      minIdle: 5
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+
+# MyBatis-Plus 核心配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cy.share.pojo
+  configuration:
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    db-config:
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      id-type: auto
+
+# 日志配置（Logback）
+logging:
+  level:
+    com.cy.share.mapper: DEBUG # 控制 MyBatis-Plus Mapper 包的 SQL 日志级别为 DEBUG
+    com.cy.share.config.interceptor: DEBUG          # 拦截器包输出DEBUG日志（关键配置）
+server:
+  port: 9000
+
+# oss
+#对应的配置文件
+alibaba:
+  cloud:
+    secret-key: #你自己的
+    access-key: #你自己的
+    oss:
+      endpoint: oss-cn-beijing.aliyuncs.com
+      bucket: health-plat
+
+ip:
+  localhost

@@ -1,0 +1,65 @@
+# ===================== 基础构建产物（原有+补充） =====================
+target/
+!/.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+out/          # IDEA 额外构建目录
+*.jar         # 裸打包的jar（兜底）
+*.war         # 裸打包的war（兜底）
+*.ear         # 裸打包的ear（兜底）
+
+# ===================== IDE 配置（原有+补充） =====================
+# STS/Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+*.launch
+*.tmp
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+*.ids
+*.orig
+*.bak
+
+# ===================== 构建工具（Maven/Gradle 补充） =====================
+# Maven
+repository/    # 本地maven仓库缓存（若项目内置）
+*.log          # maven 日志
+.mvn/timing/   # maven 计时日志
+
+# ===================== Java 通用临时文件 =====================
+*.class        # 编译后的class文件（兜底）
+*.swp          # vim 交换文件
+*.swo          # vim 交换文件
+*.tmp          # 临时文件
+*.bak          # 备份文件
+.DS_Store      # Mac 系统文件
+Thumbs.db      # Windows 缩略图
+hs_err_pid*.log # JVM 崩溃日志
+gc.log*        # 垃圾回收日志
+
+# ===================== 测试/调试 =====================
+surefire-reports/  # maven surefire 测试报告
+test-results/      # 测试结果目录
+debug.log          # 调试日志
+trace.log          # 追踪日志
+
+# ===================== 环境/敏感配置 =====================
+.env
+.env.local
+.env.*.local
+*.properties.local # 本地覆盖的配置文件
+secrets/           # 密钥/证书目录
+# 测试
+src/test/
